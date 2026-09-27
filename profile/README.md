@@ -1,6 +1,6 @@
 <div align="center">
 
-<a href="https://aethus.tech"><img src="https://raw.githubusercontent.com/aethus-ia/.github/main/assets/banner.png" alt="AETHUS IA — A inteligência que conecta, organiza e eleva" width="100%"></a>
+<a href="https://aethus.tech"><img src="https://raw.githubusercontent.com/Aethus-AI/.github/main/assets/banner.png" alt="AETHUS IA — A inteligência que conecta, organiza e eleva" width="100%"></a>
 
 ### A inteligência que conecta, organiza e eleva sistemas e pessoas.
 
