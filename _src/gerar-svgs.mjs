@@ -80,19 +80,24 @@ ${lines}${nodes}
 }
 
 /* -------------------------------------------------------------- processo */
-function processo() {
+const PROCESSO = {
+  pt: { title: '// COMO TRABALHAMOS', steps: [['DIAGNÓSTICO', 'MAPEAR GARGALOS'], ['ARQUITETURA', 'DESENHAR O SISTEMA'], ['AUTOMAÇÃO', 'IMPLANTAR E TESTAR'], ['ESCALA', 'MONITORAR E EXPANDIR']] },
+  en: { title: '// HOW WE WORK', steps: [['DIAGNOSIS', 'MAP BOTTLENECKS'], ['ARCHITECTURE', 'DESIGN THE SYSTEM'], ['AUTOMATION', 'DEPLOY & TEST'], ['SCALE', 'MONITOR & EXPAND']] },
+};
+function processo(lang) {
   const W = 1200, H = 250;
-  const steps = [['01', 'DIAGNÓSTICO', 'DIAGNOSIS'], ['02', 'ARQUITETURA', 'ARCHITECTURE'], ['03', 'AUTOMAÇÃO', 'AUTOMATION'], ['04', 'ESCALA', 'SCALE']];
+  const { title, steps: labels } = PROCESSO[lang];
+  const steps = labels.map(([a, b], i) => [`0${i + 1}`, a, b]);
   const xs = [150, 450, 750, 1050], y = 104;
   const nodes = steps.map(([n, pt, en], i) => `
 <g class="step" style="animation-delay:${i * 1}s">
   <circle cx="${xs[i]}" cy="${y}" r="34" fill="${C.navy}" stroke="${C.light}" stroke-width="1.5" class="ring"/>
   <circle cx="${xs[i]}" cy="${y}" r="34" fill="none" stroke="${C.light}" class="wave" style="animation-delay:${i * 1}s"/>
   <text x="${xs[i]}" y="${y + 6}" text-anchor="middle" class="num">${n}</text>
-  <text x="${xs[i]}" y="${y + 74}" text-anchor="middle" class="pt">${pt}</text>
-  <text x="${xs[i]}" y="${y + 98}" text-anchor="middle" class="en">${en}</text>
+  <text x="${xs[i]}" y="${y + 74}" text-anchor="middle" class="pt">${esc(pt)}</text>
+  <text x="${xs[i]}" y="${y + 98}" text-anchor="middle" class="en">${esc(en)}</text>
 </g>`).join('');
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Diagnóstico → Arquitetura → Automação → Escala / Diagnosis → Architecture → Automation → Scale">
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${labels.map((l) => l[0]).join(' → ')}">
 <defs>
 <style>${FONTS.display}${FONTS.mono}
 .num{font:500 16px 'JB',ui-monospace,monospace;fill:${C.light}}
@@ -109,7 +114,7 @@ ${reduced}
 <radialGradient id="dot"><stop offset="0" stop-color="#fff"/><stop offset=".4" stop-color="${C.light}"/><stop offset="1" stop-color="${C.light}" stop-opacity="0"/></radialGradient>
 </defs>
 <rect width="${W}" height="${H}" rx="18" fill="${C.black}" stroke="${C.line}"/>
-<text x="40" y="40" class="eyebrow">// COMO TRABALHAMOS · HOW WE WORK</text>
+<text x="40" y="40" class="eyebrow">${title}</text>
 <line x1="${xs[0]}" y1="${y}" x2="${xs[3]}" y2="${y}" stroke="${C.line}" stroke-width="2"/>
 <line x1="${xs[0]}" y1="${y}" x2="${xs[3]}" y2="${y}" stroke="url(#track)" stroke-width="2" stroke-dasharray="900" stroke-dashoffset="900">
   <animate attributeName="stroke-dashoffset" values="900;0;0" keyTimes="0;.75;1" dur="4s" repeatCount="indefinite"/>
@@ -158,7 +163,8 @@ ${reduced}
 
 const files = {
   'header.svg': header(),
-  'processo.svg': processo(),
+  'processo-pt.svg': processo('pt'),
+  'processo-en.svg': processo('en'),
   'rodape.svg': rodape(),
   'btn-pt.svg': button('PORTUGUÊS', { w: 170 }),
   'btn-en.svg': button('ENGLISH', { w: 150 }),

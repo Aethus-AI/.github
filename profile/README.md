@@ -42,7 +42,7 @@ objetivo:  sua operação trabalhando sozinha — com segurança e LGPD desde o 
 
 ### `// como trabalhamos`
 
-<img src="https://raw.githubusercontent.com/Aethus-AI/.github/main/assets/processo.svg" width="100%" alt="Diagnóstico → Arquitetura → Automação → Escala">
+<img src="https://raw.githubusercontent.com/Aethus-AI/.github/main/assets/processo-pt.svg" width="100%" alt="Diagnóstico → Arquitetura → Automação → Escala">
 
 1. **Diagnóstico** — mergulhamos na operação e mapeamos onde a automação gera mais retorno.
 2. **Arquitetura** — desenhamos fluxos, agentes, integrações, dados e segurança antes de escrever uma linha.
@@ -122,7 +122,7 @@ goal:      your operation running on its own — secure and privacy-first from d
 
 ### `// how we work`
 
-<img src="https://raw.githubusercontent.com/Aethus-AI/.github/main/assets/processo.svg" width="100%" alt="Diagnosis → Architecture → Automation → Scale">
+<img src="https://raw.githubusercontent.com/Aethus-AI/.github/main/assets/processo-en.svg" width="100%" alt="Diagnosis → Architecture → Automation → Scale">
 
 1. **Diagnosis** — we dive into your operation and map where automation brings the highest return.
 2. **Architecture** — we design flows, agents, integrations, data and security before writing a single line.
